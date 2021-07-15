@@ -1,0 +1,19 @@
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+//  `mID` int DEFAULT NULL,不需角色
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `person` (
+  `name` varchar(20) DEFAULT NULL,
+  `workplace` varchar(20) DEFAULT NULL,
+  `QQID` varchar(11) DEFAULT NULL,
+  `PhoneID` varchar(11) DEFAULT NULL,
+  `user_id` int,
+  foreign key(user_id) references user(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+如何使person里重复的人不用出现多行，只是修改他们与user的关系？
+不需如此，可能在通讯录里的信息一样，但是给的备注不一样。
